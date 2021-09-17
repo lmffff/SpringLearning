@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <bean id="testDao" class="dao.TestDaoImpl"></bean>
+
+
+    <bean id="person" class="dao.Person" init-method="myInit">
+<!--        1.复杂写法-->
+        <!--        <property name="name">-->
+<!--            <value>xiaoMing</value>-->
+<!--        </property>-->
+
+<!--        <property name="id">-->
+<!--            <value>10</value>-->
+<!--        </property>-->
+
+        <!--  2.简化写法-->
+        <property name="id" value="666"/>
+        <property name="name" value="xiaohong"/>
+
+        <property name="addresses">
+            <list>
+                <value>123456</value>
+                <value>654321</value>
+            </list>
+        </property>
+    </bean>
+    <!--  3.再简化 把创建对象和赋值放在一行-->
+<!--    <bean id="person1" class="dao.Person" p:name="oneLineNewClass" p:id="6666"/>-->
+
+</beans>
+
+
