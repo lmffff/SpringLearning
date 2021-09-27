@@ -1,4 +1,5 @@
 package dao;
+import org.springframework.beans.factory.DisposableBean;
 import org.springframework.beans.factory.InitializingBean;
 
 import java.util.List;
@@ -7,7 +8,7 @@ import java.util.Properties;
 import java.util.Set;
 
 // new Person() 通过工厂
-public class Person implements InitializingBean {
+public class Person implements InitializingBean, DisposableBean {
     private Integer id;
     private String name;
     private List<String> hobby;
@@ -97,6 +98,11 @@ public class Person implements InitializingBean {
 
     public void myInit(){
         System.out.println("MyInit!");
+    }
+
+    @Override
+    public void destroy() throws Exception {
+        System.out.println("destroy object!自动销毁");
     }
 
     //
